@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../css/issues.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Issues</title>
+
+    <!-- fonts to use -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <style>
+      /* Add Issue button style */
+      #addIssueButton {
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        padding: 10px 20px;
+        background-color: #0c3c6e;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      #addIssueButton:hover {
+        background-color: #0069d9;
+      }
+
+      /* Add Issue button style */
+#addIssueButton {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #0c3c6e;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#addIssueButton:hover {
+  background-color: #0069d9;
+}
+
+/* Styling for issue cards */
+.issue-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.issue-description {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.issue-details {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.issue-type {
+  font-weight: bold;
+}
+
+.project-id {
+  color: #666;
+}
+
+</style>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="grid-container">
+      <header class="header">
+        <div class="menu-icon" onclick="opensidebar()">
+          <span class="material-icons-outlined">menu</span>
+        </div>
+
+        <div class="header-left">
+          <span class="material-icons-outlined">search</span>
+        </div>
+
+        <div class="header-right">
+          <span class="material-icons-outlined">account_circle</span>
+        </div>
+      </header>
+
+      <aside id="slidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <img src="../assets/logo.png" alt="Logo" />
+          </div>
+        </div>
+        <nav class="sidebar-menu">
+          <ul>
+            <li>
+              <a href="../mera_html/Dashboard.html" class="menu-item">
+                <span class="material-icons-outlined">dashboard</span>Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="../mera_html/Projects.html" class="menu-item">
+                <span class="material-icons-outlined">folder</span>Projects
+              </a>
+            </li>
+            <li>
+              <a href="../mera_html/board.html" class="menu-item">
+                <span class="material-icons-outlined">dashboard</span>Boards
+              </a>
+            </li>
+            <li>
+              <a href="../mera_html/Reports.html" class="menu-item">
+                <span class="material-icons-outlined">bar_chart</span>Reports
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="menu-item">
+                <span class="material-icons-outlined">bug_report</span>Issues
+              </a>
+            </li>
+            <li>
+              <a href="../mera_html/landing.html" class="menu-item">
+                <span class="material-icons-outlined">logout</span>Logout
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main-container">
+        <h1 id="main_ttl">Issues</h1>
+        <div class="issue-list">
+          <ul class="horizontal-list" id="issuesList">
+            
+          </ul>
+          <button id="addIssueButton" onclick="addIssue()">Add Issue</button>
+        </div>
+      </main>
+    </div>
+    
+    <script src="../scripts/issue.js"></script>
+  </body>
+</html>

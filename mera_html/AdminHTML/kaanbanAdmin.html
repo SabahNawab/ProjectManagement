@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #fcfdf3;
+      }
+      .column {
+        min-height: 200px;
+        background-color: #0c919174;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+
+      .card {
+        background-color: #fcfdf3;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        cursor: grab;
+      }
+
+      .create-button {
+        background-color: #073171;
+        border-color: #062d68;
+      }
+
+      .create-button:hover {
+        background-color: #04357f8e;
+        border-color: none;
+      }
+
+      .create-button:focus {
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.5);
+      }
+      .back-button {
+        background-color: #073171;
+        color: white;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <a
+        href="../../mera_html/AdminHTML/indexAdmin.html"
+        class="btn btn-primary back-button"
+        >Back</a
+      >
+      <h1>Kanban Board</h1>
+      <hr />
+      <div class="row">
+        <div class="col-sm-3">
+          <h3>To Do</h3>
+          <div
+            class="column"
+            id="todo-column"
+            ondrop="drop(event, 'todo-column')"
+            ondragover="allowDrop(event)"
+          ></div>
+          <div>
+            <button
+              class="btn btn-primary mt-3 create-button"
+              onclick="createCard('todo-column')"
+            >
+              Create New Card
+            </button>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <h3>In Progress</h3>
+          <div
+            class="column"
+            id="inprogress-column"
+            ondrop="drop(event, 'inprogress-column')"
+            ondragover="allowDrop(event)"
+          ></div>
+          <div>
+            <button
+              class="btn btn-primary mt-3 create-button"
+              onclick="createCard('inprogress-column')"
+            >
+              Create New Card
+            </button>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <h3>Validate</h3>
+          <div
+            class="column"
+            id="validate-column"
+            ondrop="drop(event, 'validate-column')"
+            ondragover="allowDrop(event)"
+          ></div>
+          <div>
+            <button
+              class="btn btn-primary mt-3 create-button"
+              onclick="createCard('validate-column')"
+            >
+              Create New Card
+            </button>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <h3>Done</h3>
+          <div
+            class="column"
+            id="done-column"
+            ondrop="drop(event, 'done-column')"
+            ondragover="allowDrop(event)"
+          ></div>
+          <div>
+            <button
+              class="btn btn-primary mt-3 create-button"
+              onclick="createCard('done-column')"
+            >
+              Create New Card
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function allowDrop(event) {
+        event.preventDefault();
+      }
+
+      function dragStart(event) {
+        event.dataTransfer.setData("text", event.target.id);
+      }
+
+      function drop(event, columnId) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("text");
+        event.target.appendChild(document.getElementById(data));
+      }
+
+      function createCard(columnId) {
+        var column = document.getElementById(columnId);
+        var cardId = "card" + (column.children.length + 1);
+        var card = document.createElement("div");
+        card.className = "card";
+        card.id = cardId;
+        card.draggable = true;
+        card.addEventListener("dragstart", dragStart);
+        var cardInput = document.createElement("input");
+        cardInput.className = "form-control";
+        cardInput.type = "text";
+        cardInput.placeholder = "Enter card text";
+        card.appendChild(cardInput);
+        column.appendChild(card);
+      }
+    </script>
+  </body>
+</html>

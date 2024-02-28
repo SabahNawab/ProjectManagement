@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../../css/ADMIN/UserMangement.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UserManagement</title>
+
+    <!-- fonts to use -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="grid-container">
+      <header class="header">
+        <div class="menu-icon" onclick="opensidebar()">
+          <span class="material-icons-outlined">menu</span>
+        </div>
+
+        <div class="header-left">
+          <span class="material-icons-outlined">search</span>
+        </div>
+
+        <div class="header-right">
+          <span class="material-icons-outlined">account_circle</span>
+        </div>
+      </header>
+
+      <aside id="slidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <img src="../../assets/logo.png" alt="Logo" />
+          </div>
+        </div>
+        <nav class="sidebar-menu">
+          <ul>
+            <li>
+              <a
+                href="../../mera_html/AdminHTML/indexAdmin.html"
+                class="menu-item"
+              >
+                <span class="material-icons-outlined">dashboard</span>Dashboard
+              </a>
+            </li>
+            <li>
+              <a
+                href="../../mera_html/AdminHTML/ProjectsAdmin.html"
+                class="menu-item"
+              >
+                <span class="material-icons-outlined">folder</span>Projects
+              </a>
+            </li>
+            <li>
+              <a
+                href="../../mera_html/AdminHTML/boardsAdmin.html"
+                class="menu-item"
+              >
+                <span class="material-icons-outlined">dashboard</span>Boards
+              </a>
+            </li>
+            <li>
+              <a
+                href="../../mera_html/AdminHTML/reportsAdmin.html"
+                class="menu-item"
+              >
+                <span class="material-icons-outlined">bar_chart</span>Reports
+              </a>
+            </li>
+            <li>
+              <a href="#" class="menu-item">
+                <span class="material-icons-outlined">people</span>User
+                Management
+              </a>
+            </li>
+            <li>
+              <a
+                href="../../mera_html/AdminHTML/issueAdmin.html"
+                class="menu-item"
+              >
+                <span class="material-icons-outlined">bug_report</span>Issues
+              </a>
+            </li>
+            <li>
+              <a href="../../mera_html/landing.html" class="menu-item">
+                <span class="material-icons-outlined">logout</span>Logout
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main-container">
+        <div class="user-list">
+          <table class="user-list">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Permissions</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="user-icon material-icons-outlined">
+                    account_circle
+                  </div>
+                  <span class="user-name">John Doe</span>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="permissions-input"
+                    value="Manage Projects, View Reports"
+                  />
+                </td>
+                <td>
+                  <button class="remove-button">Remove</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="user-icon material-icons-outlined">
+                    account_circle
+                  </div>
+                  <span class="user-name">Jane Smith</span>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="permissions-input"
+                    value="Manage Boards, Create Tasks"
+                  />
+                </td>
+                <td>
+                  <button class="remove-button">Remove</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="user-icon material-icons-outlined">
+                    account_circle
+                  </div>
+                  <span class="user-name">Mark Johnson</span>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="permissions-input"
+                    value="Manage Users, Edit Settings"
+                  />
+                </td>
+                <td>
+                  <button class="remove-button">Remove</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="user-icon material-icons-outlined">
+                    account_circle
+                  </div>
+                  <span class="user-name">Emily Davis</span>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="permissions-input"
+                    value="View Projects, View Reports"
+                  />
+                </td>
+                <td>
+                  <button class="remove-button">Remove</button>
+                </td>
+              </tr>
+              <!-- Add more rows for additional users -->
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

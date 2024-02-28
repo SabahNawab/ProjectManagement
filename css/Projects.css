@@ -1,0 +1,219 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fcfdf3;
+    color: black;
+    font-family: sans-serif;
+  }
+  
+  .material-icons-outlined {
+    vertical-align: middle;
+    line-height: 1px;
+    font-size: 35px;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: 260px 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas:
+      "sidebar header header header"
+      "sidebar main main main";
+    height: 100vh;
+  }
+  
+  .header {
+    grid-area: header;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0px;
+    box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
+  }
+  
+  .menu-icon {
+    display: none;
+  }
+  
+  .main-container {
+    grid-area: main;
+    overflow-y: auto;
+    padding: 20px;
+  }
+  
+  #slidebar {
+    grid-area: sidebar;
+    height: 100%;
+    background-color: #31837c;
+    overflow-y: auto;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
+  }
+  
+  .sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-menu li {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .sidebar-menu li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+  }
+  
+  .sidebar-menu li a .material-icons-outlined {
+    margin-right: 10px;
+    font-size: 30px;
+  }
+  
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+  }
+  
+  .sidebar-brand img {
+    padding-left: 20px;
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Updated Styles */
+  
+  .main-container {
+    padding: 20px;
+  }
+  
+  
+  .project-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+  
+  .completed-projects,
+  .ongoing-projects {
+    background-color:rgba(16, 129, 129, 0.226);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .completed-projects h2,
+  .ongoing-projects h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  
+  .completed-projects .project-card,
+  .ongoing-projects .project-card {
+    margin-bottom: 10px;
+  }
+
+ 
+  .right-content h1 {
+    font-size: 24px;
+    margin: 0;
+    padding-left: 20px;
+  }
+  
+  .status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .completed {
+    background-color: #4c6aaf;
+    color: white;
+  }
+  
+  .ongoing {
+    background-color: #4a2fab;
+    color: white;
+  }
+  
+  
+  .view-button {
+    padding: 5px 30px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .view-button:hover {
+    background-color: #45a049;
+  }
+  .create-project {
+    margin-bottom: 20px; /* Adjust the margin-bottom to create spacing between the section and the project list */
+    padding: 10px;
+    background-color:rgba(16, 129, 129, 0.226);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.279);
+    margin-right: 10px;
+  }
+  
+  .create-project h2 {
+    font-size: 18px; /* Decrease the font size for a smaller heading */
+    margin-bottom: 10;
+    margin-left: 170px;
+  }
+  
+  .create-project form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px; /* Adjust the max-width as per your preference */
+    margin-left: 50px;
+  }
+  
+  .create-project label {
+    font-weight: bold;
+  }
+  
+  .create-project input,
+  .create-project textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .create-project button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .create-project button:hover {
+    background-color: #45a049;
+  }
+  

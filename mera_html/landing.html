@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Selection</title>
+    <link rel="stylesheet" href="../css/landing.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <style>
+      :root {
+        --admin-color: #0f8e8a92;
+        --customer-color: #67137e88;
+        --member-color: #5c6bc095;
+        --manager-color: #5c06487d;
+        --button-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img class="logo" src="../assets/logo_blk.png" alt="Logo" />
+      <h1 class="title">Choose Your Account Type</h1>
+      <div class="account-types">
+        <div class="account-type" style="--account-color: var(--admin-color)">
+          <span class="material-icons account-type-icon">account_circle</span>
+          <h2 class="account-type-title">Admin</h2>
+          <a
+            href="../mera_html/AdminHTML/loginAdmin.html"
+            class="btn"
+            style="--button-color: var(--admin-color)"
+            >Select</a
+          >
+        </div>
+        <div
+          class="account-type"
+          style="--account-color: var(--customer-color)"
+        >
+          <span class="material-icons account-type-icon">account_circle</span>
+          <h2 class="account-type-title">Customer</h2>
+          <a
+            href="../mera_html/loginCustomer.html"
+            class="btn"
+            style="--button-color: var(--customer-color)"
+            >Select</a
+          >
+        </div>
+        <div class="account-type" style="--account-color: var(--member-color)">
+          <span class="material-icons account-type-icon">account_circle</span>
+          <h2 class="account-type-title">Member</h2>
+          <a
+            href="../mera_html/loginMember.html"
+            class="btn"
+            style="--button-color: var(--member-color)"
+            >Select</a
+          >
+        </div>
+        <div class="account-type" style="--account-color: var(--manager-color)">
+          <span class="material-icons account-type-icon">account_circle</span>
+          <h2 class="account-type-title">Manager</h2>
+          <a
+            href="../mera_html/loginManager.html"
+            class="btn"
+            style="--button-color: var(--manager-color)"
+            >Select</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

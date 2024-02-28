@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../../css/ADMIN/issuesAdmin.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Issues</title>
+
+    <!-- fonts to use -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <style>
+      /* Add Issue button style */
+      #addIssueButton {
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        padding: 10px 20px;
+        background-color: #0c3c6e;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      #addIssueButton:hover {
+        background-color: #0069d9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <header class="header">
+        <div class="menu-icon" onclick="opensidebar()">
+          <span class="material-icons-outlined">menu</span>
+        </div>
+
+        <div class="header-left">
+          <span class="material-icons-outlined">search</span>
+        </div>
+
+        <div class="header-right">
+          <span class="material-icons-outlined">account_circle</span>
+        </div>
+      </header>
+
+      <aside id="slidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <img src="../../assets/logo.png" alt="Logo" />
+          </div>
+        </div>
+        <nav class="sidebar-menu">
+          <ul>
+            <li>
+              <a
+                href="../../mera_html/AdminHTML/indexAdmin.html"
+                class="menu-item"
+              >
+                <span class="material-icons-outlined">dashboard</span>Dashboard
+              </a>
+            </li>
+            <li>
+              <a
+                href="../../mera_html/AdminHTML/ProjectsAdmin.html"
+                class="menu-item"
+              >
+                <span class="material-icons-outlined">folder</span>Projects
+              </a>
+            </li>
+            <li>
+              <a
+                href="../../mera_html/AdminHTML/boardsAdmin.html"
+                class="menu-item"
+              >
+                <span class="material-icons-outlined">dashboard</span>Boards
+              </a>
+            </li>
+            <li>
+              <a
+                href="../../mera_html/AdminHTML/reportsAdmin.html"
+                class="menu-item"
+              >
+                <span class="material-icons-outlined">bar_chart</span>Reports
+              </a>
+            </li>
+            <li>
+              <a
+                href="../../mera_html/AdminHTML/Usermanagment.html"
+                class="menu-item"
+              >
+                <span class="material-icons-outlined">people</span>User
+                Management
+              </a>
+            </li>
+            <li>
+              <a href="#" class="menu-item">
+                <span class="material-icons-outlined">bug_report</span>Issues
+              </a>
+            </li>
+            <li>
+              <a href="../../mera_html/landing.html" class="menu-item">
+                <span class="material-icons-outlined">logout</span>Logout
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main-container">
+        <h1 id="main_ttl">Issues</h1>
+        <div class="issue-list">
+          <ul class="horizontal-list" id="issuesList">
+            <!-- Dynamic issues will be added here -->
+          </ul>
+          <button id="addIssueButton">Add Issue</button>
+        </div>
+      </main>
+    </div>
+    <script>
+      let issueCount = 0; // Start issue count from 1
+      const issuesList = document.getElementById("issuesList");
+      const addIssueButton = document.getElementById("addIssueButton");
+
+      // Function to generate a new issue HTML element
+      function createIssueElement(name, id, type, project) {
+        const issueBox = document.createElement("li");
+        issueBox.classList.add("issue-box");
+
+        issueBox.innerHTML = `
+      <div class="issue-name">${name}</div>
+      <div class="issue-id">ID: ${id}</div>
+      <div class="issue-type">Type: ${type}</div>
+      <div class="project-name">Project: ${project}</div>
+      <div class="comments-section">
+        <h4>Comments:</h4>
+        <ul class="comments-list"></ul>
+        <input type="text" class="comment-input" placeholder="Add a comment" />
+        <button class="add-comment-button">Add Comment</button>
+      </div>
+      <div class="workflow-status">Status: Ongoing</div>
+      <div class="button-container">
+        <button class="view-button">View</button>
+        <button class="remove-button">Remove</button>
+      </div>
+    `;
+
+        return issueBox;
+      }
+
+      // Function to add a new issue
+      function addIssue() {
+        const name = `Issue ${issueCount + 1}`;
+        const id = `00${issueCount + 1}`;
+        const type = "Bug"; // Example type
+        const project = "Project A"; // Example project
+
+        const issueBox = createIssueElement(name, id, type, project);
+        issuesList.appendChild(issueBox);
+
+        // Incrementing the issue count for the next issue
+        issueCount++;
+      }
+
+      // Event listener for the add issue button
+      addIssueButton.addEventListener("click", addIssue);
+
+      // Event listeners for the remove and view buttons (delegated to the dynamic issue elements)
+      issuesList.addEventListener("click", (event) => {
+        const target = event.target;
+
+        if (target.classList.contains("remove-button")) {
+          const issueBox = target.closest(".issue-box");
+          issueBox.remove();
+        } else if (target.classList.contains("view-button")) {
+          const issueBox = target.closest(".issue-box");
+          // Performing the desired action to view the issue
+          console.log(
+            `Viewing issue: ${
+              issueBox.querySelector(".issue-name").textContent
+            }`
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

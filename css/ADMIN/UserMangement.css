@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fcfdf3;
+    color: black;
+    font-family: sans-serif;
+  }
+  
+  .material-icons-outlined {
+    vertical-align: middle;
+    line-height: 1px;
+    font-size: 35px;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: 260px 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas:
+      "sidebar header header header"
+      "sidebar main main main";
+    height: 100vh;
+  }
+  
+  .header {
+    grid-area: header;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
+  }
+  
+  .menu-icon {
+    display: none;
+  }
+  
+  .main-container {
+    grid-area: main;
+    overflow-y: auto;
+    padding: 20px;
+  }
+  
+  #slidebar {
+    grid-area: sidebar;
+    height: 100%;
+    background-color: #31837c;
+    overflow-y: auto;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
+  }
+  
+  .sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-menu li {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .sidebar-menu li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+  }
+  
+  .sidebar-menu li a .material-icons-outlined {
+    margin-right: 10px;
+    font-size: 30px;
+  }
+  
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+  }
+  
+  .sidebar-brand img {
+    padding-left: 20px;
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .user-list {
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #1e848979;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #fcfdf3;
+  }
+  
+  .user-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #fcfdf3;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .remove-button {
+    background-color: #2a2aae9e;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .remove-button:hover {
+    background-color: #2a2aaee7;
+  }
+  
+  .permissions-input {
+    width: 100%;
+    max-width: 400px;
+    }
+  

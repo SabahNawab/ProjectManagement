@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../../css/Projects.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Projects</title>
+
+    <!-- fonts to use -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- All the icons to use -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <script>
+      function redirectToBoards() {
+        window.location.href = "../mera_html/boardsAdmin.html";
+      }
+    </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="grid-container">
+      <header class="header">
+        <div class="menu-icon" onclick="opensidebar()">
+          <span class="material-icons-outlined">menu</span>
+        </div>
+        <div class="header-left">
+          <span class="material-icons-outlined">search</span>
+        </div>
+        <div class="header-right">
+          <span class="material-icons-outlined">account_circle</span>
+        </div>
+      </header>
+
+      <aside id="slidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <img src="../assets/logo.png" alt="Logo" />
+          </div>
+        </div>
+        <nav class="sidebar-menu">
+          <ul>
+            <li>
+              <a href="../mera_html/Dashboard.html" class="menu-item"
+                ><span class="material-icons-outlined">dashboard</span
+                >Dashboard</a
+              >
+            </li>
+            <li>
+              <a href="#" class="menu-item"
+                ><span class="material-icons-outlined">folder</span>Projects</a
+              >
+            </li>
+            <li>
+              <a href="../mera_html/board.html" class="menu-item"
+                ><span class="material-icons-outlined">dashboard</span>Boards</a
+              >
+            </li>
+            <li>
+              <a href="../mera_html/Reports.html" class="menu-item"
+                ><span class="material-icons-outlined">bar_chart</span
+                >Reports</a
+              >
+            </li>
+
+            <li>
+              <a href="../mera_html/issues.html" class="menu-item"
+                ><span class="material-icons-outlined">bug_report</span
+                >Issues</a
+              >
+            </li>
+            <li>
+              <a href="../mera_html/landing.html" class="menu-item"
+                ><span class="material-icons-outlined">logout</span>Logout</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main-container">
+        <div class="create-project">
+          <h2>Create New Project</h2>
+          <form>
+            <label for="project-title">Project Title</label>
+            <input type="text" id="project-title" required />
+
+            <label for="project-due-date">Due Date</label>
+            <input type="date" id="project-due-date" required />
+
+            <label for="project-creator">Admin ID</label>
+            <input type="text" id="project-adminid" required />
+
+            <label for="project-creator">Manager ID</label>
+            <input type="text" id="project-managerid" required />
+
+            <label for="project-creator">Customer ID</label>
+            <input type="text" id="project-custid" required />
+
+            <button type="submit">Create</button>
+          </form>
+        </div>
+        <div class="right-content">
+          <div class="project-list">
+            <div class="completed-projects">
+              <h2>Completed Projects</h2>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="../../scripts/adminProjects.js"></script>
+  </body>
+</html>

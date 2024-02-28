@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scrum Board</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #fcfdf3;
+      }
+      .column {
+        min-height: 200px;
+        background-color: #457b815a;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+
+      .card {
+        background-color: #fcfdf3;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        cursor: grab;
+      }
+
+      .create-button {
+        background-color: #073171;
+        border-color: #062d68;
+      }
+
+      .create-button:hover {
+        background-color: #04357f8e;
+        border-color: none;
+      }
+
+      .create-button:focus {
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.5);
+      }
+
+      .back-button {
+        background-color: #073171;
+        color: white;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <a href="../mera_html/Dashboard.html" class="btn btn-primary back-button"
+        >Back</a
+      >
+      <h1 id="board-heading">Scrum Board</h1>
+      <hr />
+      <div class="row">
+      </div>
+    </div>
+
+    <script>
+      function allowDrop(event) {
+        event.preventDefault();
+      }
+
+      function dragStart(event) {
+        event.dataTransfer.setData("text", event.target.id);
+      }
+
+      function drop(event, columnId) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("text");
+        event.target.appendChild(document.getElementById(data));
+      }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../scripts/board.js"></script>
+  </body>
+</html>

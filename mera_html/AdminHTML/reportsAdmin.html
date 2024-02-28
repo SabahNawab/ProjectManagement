@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../../css/ADMIN/reportsAdmin.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DashBoard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- fonts to use -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- All the icons to use -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="grid-container">
+      <header class="header">
+        <div class="menu-icon" onclick="opensidebar()">
+          <span class="material-icons-outlined">menu</span>
+        </div>
+
+        <div class="header-left">
+          <span class="material-icons-outlined">search</span>
+        </div>
+
+        <div class="header-right">
+          <span class="material-icons-outlined">account_circle</span>
+        </div>
+      </header>
+
+      <aside id="slidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <img src="../../assets/logo.png" alt="Logo" />
+          </div>
+        </div>
+        <nav class="sidebar-menu">
+          <ul>
+            <li>
+              <a
+                href="../../mera_html/AdminHTML/indexAdmin.html"
+                class="menu-item"
+                ><span class="material-icons-outlined">dashboard</span
+                >Dashboard</a
+              >
+            </li>
+            <li>
+              <a
+                href="../../mera_html/AdminHTML/ProjectsAdmin.html"
+                class="menu-item"
+                ><span class="material-icons-outlined">folder</span>Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="../../mera_html/AdminHTML/boardsAdmin.html"
+                class="menu-item"
+                ><span class="material-icons-outlined">dashboard</span>Boards</a
+              >
+            </li>
+            <li>
+              <a
+                href="../../mera_html/AdminHTML/reportsAdmin.html"
+                class="menu-item"
+                ><span class="material-icons-outlined">bar_chart</span
+                >Reports</a
+              >
+            </li>
+            <li>
+              <a
+                href="../../mera_html/AdminHTML/Usermanagment.html"
+                class="menu-item"
+                ><span class="material-icons-outlined">people</span>User
+                Management</a
+              >
+            </li>
+            <li>
+              <a
+                href="../../mera_html/AdminHTML/issueAdmin.html"
+                class="menu-item"
+                ><span class="material-icons-outlined">bug_report</span
+                >Issues</a
+              >
+            </li>
+            <li>
+              <a href="../../mera_html/landing.html" class="menu-item"
+                ><span class="material-icons-outlined">logout</span>Logout</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main-container">
+        <h1 id="main_ttl">Reports</h1>
+        <div class="chart-container">
+          <canvas id="project-progress-chart" width="400" height="300"></canvas>
+        </div>
+
+        <div class="chart-container">
+          <canvas
+            id="resource-utilization-chart"
+            width="400"
+            height="300"
+          ></canvas>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="budget-analysis-chart" width="400" height="300"></canvas>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Project Progress Chart
+      var projectProgressChart = new Chart(
+        document.getElementById("project-progress-chart").getContext("2d"),
+        {
+          type: "bar",
+          data: {
+            labels: ["Q1", "Q2", "Q3", "Q4"],
+            datasets: [
+              {
+                label: "Completed Tasks",
+                data: [15, 28, 12, 20],
+                backgroundColor: "#1e9d71",
+              },
+              {
+                label: "Remaining Tasks",
+                data: [10, 5, 8, 15],
+                backgroundColor: "#AFE4DE",
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                grid: {
+                  display: false,
+                },
+              },
+              y: {
+                grid: {
+                  color: "#ccc",
+                },
+              },
+            },
+          },
+        }
+      );
+
+      // Resource Utilization Chart
+      var resourceUtilizationChart = new Chart(
+        document.getElementById("resource-utilization-chart").getContext("2d"),
+        {
+          type: "doughnut",
+          data: {
+            labels: ["Design", "Development", "Testing", "Deployment"],
+            datasets: [
+              {
+                data: [20, 30, 15, 35],
+                backgroundColor: ["#01a8c3", "#1e9d71", "#58b9c5", "grey"],
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: "70%",
+          },
+        }
+      );
+
+      // Budget Analysis Chart
+      var budgetAnalysisChart = new Chart(
+        document.getElementById("budget-analysis-chart").getContext("2d"),
+        {
+          type: "line",
+          data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+            datasets: [
+              {
+                label: "Actual",
+                data: [10000, 12000, 8000, 11000, 9000, 13000],
+                borderColor: "#1e9d71",
+                fill: false,
+              },
+              {
+                label: "Planned",
+                data: [10000, 11000, 9000, 10000, 9500, 11500],
+                borderColor: "black",
+                fill: false,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                grid: {
+                  color: "#ccc",
+                },
+              },
+              y: {
+                grid: {
+                  color: "#ccc",
+                },
+              },
+            },
+          },
+        }
+      );
+    </script>
+  </body>
+</html>
